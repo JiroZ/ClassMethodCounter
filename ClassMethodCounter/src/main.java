@@ -19,37 +19,41 @@ public class main {
         Pattern pattern = Pattern.compile("[A-Za-z0-9]+ +[A-Za-z0-9]+\\([A-Za-z0-9, !\\[\\]\\)\\(_<>]+\\)\\W+\\{");
         Pattern pattern2 = Pattern.compile("[A-Za-z0-9]+ +[A-Za-z0-9]+\\([A-Za-z0-9, !\\[\\]\\)\\(_<>]+\\)\\{");
 
-        int j= 0 ;
-        try {
-            Integer methodCounter = 0;
-            BufferedReader r = new BufferedReader(new FileReader(inputFile));
 
+            try {
+                Integer methodCounter = 0;
+                BufferedReader r = new BufferedReader(new FileReader(inputFile));
 
-            while (r.readLine()!=null) {
+                String fileString = null, lineString = null;
 
-                String currentLine = r.readLine();
+                while (r.readLine() != null) {
 
-                Matcher matcher = pattern.matcher(currentLine);
-                Matcher matcher2 = pattern2.matcher(currentLine);
+                    lineString = r.readLine();
 
-                if(matcher.matches()||matcher2.matches()) {
-                    methodCounter++;
-                    System.out.println(methodCounter);
+                    fileString += lineString;
+
+                    System.out.println(lineString);
                 }
-               // System.out.println(j);
-                System.out.println(r.readLine());
+                System.out.println(fileString);
+
+                Matcher matcher = pattern.matcher(fileString);
+                Matcher matcher2 = pattern2.matcher(fileString);
+                for(int i=1; matcher.find();i++) {
+                    System.out.println("Token " + i + ": " + matcher.group());
+                    for(int j=1; matcher2.find();j++) {
+                        System.out.println("Token2" + i + ": " + matcher2.group());
+                        methodCounter++;
+                    }
+                methodCounter++;
+                }
+                System.out.println("There are " + methodCounter + " methods in the source file");
+            }catch(Exception e) {
+                e.printStackTrace();
             }
 
 
-            System.out.println(methodCounter);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
 
 
-//        for(int i=1; matcher.find();i++)
-//            System.out.println("Token "+i+": " + matcher.group());
 
 
     }

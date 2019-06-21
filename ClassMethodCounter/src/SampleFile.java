@@ -1,10 +1,11 @@
 
 
 
+
+
 public class SampleFile {
 
-
-    public void function1(String a) {
+    public void function1(String a){
 
     }
 
@@ -13,6 +14,13 @@ public class SampleFile {
     }
 
     private void function3(String a) {
+
+    }
+
+    public void function4() {
+
+    }
+    private void function5(){
 
     }
 }
