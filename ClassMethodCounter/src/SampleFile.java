@@ -20,7 +20,8 @@ public class SampleFile {
     public void function4() {
 
     }
-    private void function5(){
+
+    public void function5(){
 
     }
 }
